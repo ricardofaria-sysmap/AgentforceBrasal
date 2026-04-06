@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brasal Incorporações — Teste Chat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f3fb;
+      color: #2c2c2c;
+    }
+
+    header {
+      background: #5B2D8E;
+      color: white;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    header .logo-box {
+      width: 42px; height: 42px;
+      background: white;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    header .logo-box span {
+      color: #5B2D8E;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    header h1 { font-size: 20px; font-weight: 600; }
+    header p  { font-size: 12px; opacity: .75; margin-top: 2px; }
+
+    .hero {
+      background: linear-gradient(135deg, #5B2D8E 0%, #7B4DB5 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 40px;
+    }
+
+    .hero h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    .hero p  { font-size: 16px; opacity: .85; max-width: 520px; margin: 0 auto; }
+
+    .cards {
+      display: flex;
+      gap: 24px;
+      padding: 48px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      flex: 1;
+      min-width: 260px;
+      box-shadow: 0 2px 12px rgba(91,45,142,.08);
+      border-top: 4px solid #5B2D8E;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #F0EBF8;
+      color: #5B2D8E;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .card h3 { font-size: 18px; font-weight: 700; color: #5B2D8E; margin-bottom: 6px; }
+    .card .local { font-size: 13px; color: #888; margin-bottom: 10px; }
+    .card p { font-size: 13px; color: #555; line-height: 1.6; }
+
+    .card .info {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .card .info span {
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      gap: 6px;
+    }
+
+    .card .info span b { color: #5B2D8E; }
+
+    .hint {
+      text-align: center;
+      padding: 0 40px 60px;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .hint strong { color: #5B2D8E; }
+
+    .pulse {
+      display: inline-block;
+      width: 10px; height: 10px;
+      background: #5B2D8E;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse 1.5s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.4); opacity: .6; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-box"><span>B</span></div>
+    <div>
+      <h1>Brasal Incorporações</h1>
+      <p>Filial Brasília</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h2>Encontre o imóvel ideal para você</h2>
+    <p>Converse com a Bia, nossa assistente virtual, e descubra qual empreendimento combina com o seu estilo de vida.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <span class="tag">Pronto para morar</span>
+      <h3>Auster Brasal</h3>
+      <div class="local">📍 Guará II — Brasília, DF</div>
+      <p>Inspirado no vento, combina vida urbana com amplas áreas ao ar livre. 18 itens de lazer e 2 torres exclusivas.</p>
+      <div class="info">
+        <span><b>Tipologia:</b> 3 e 4 quartos</span>
+        <span><b>Metragem:</b> 97m² a 349m²</span>
+        <span><b>Vagas:</b> 2 ou 3</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag">Em obras</span>
+      <h3>Reserva Orla</h3>
+      <div class="local">📍 Setor de Clubes Sul — Brasília, DF</div>
+      <p>Às margens do Lago Paranoá, com piscina de borda infinita e vista deslumbrante. Paisagismo assinado pela Burle Marx.</p>
+      <div class="info">
+        <span><b>Tipologia:</b> 1, 2 ou 3 quartos</span>
+        <span><b>Metragem:</b> 36m² a 221m²</span>
+        <span><b>Andamento:</b> 57%</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag">Em obras</span>
+      <h3>Reserva Celebrare</h3>
+      <div class="local">📍 Noroeste — Brasília, DF</div>
+      <p>No bairro mais moderno de Brasília, com unidades amplas e infraestrutura completa de lazer e serviços.</p>
+      <div class="info">
+        <span><b>Tipologia:</b> 3 quartos (1-3 suítes)</span>
+        <span><b>Metragem:</b> 98m² a 260m²</span>
+        <span><b>Andamento:</b> 73%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hint">
+    <span class="pulse"></span>
+    <strong>Bia</strong> está online — clique no botão no canto inferior direito para iniciar o atendimento
+  </div>
+
+  <script type='text/javascript'
+    id='init-agentforce-messaging'
+    src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js'
+    onload='agentforce_messaging.init({
+      siteUrl: "https://sy1774623555431.my.site.com/AFMAgentTestBrasal21775170017936",
+      agentApiConfiguration: {
+        agentId: "0XxHp000000IswaKAC",
+        domainUrl: "https://sy1774623555431.my.salesforce.com"
+      },
+      uiConfiguration: {}
+    });'>
+  </script>
+
+
+
+</body>
+</html>
