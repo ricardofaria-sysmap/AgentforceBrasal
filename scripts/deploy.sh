@@ -66,6 +66,20 @@ else
   echo "  (sem flows versionados ainda - crie na UI e rode retrieve.sh)"
 fi
 
+if [ -d force-app/main/default/genAiPlannerBundles ] && compgen -G "force-app/main/default/genAiPlannerBundles/*" > /dev/null; then
+  sf project deploy start \
+    -o "$ORG_ALIAS" \
+    -d force-app/main/default/genAiPlannerBundles \
+    --ignore-conflicts \
+    ${DEPLOY_FLAGS[@]+"${DEPLOY_FLAGS[@]}"}
+fi
+if [ -d force-app/main/default/genAiPlugins ] && compgen -G "force-app/main/default/genAiPlugins/*" > /dev/null; then
+  sf project deploy start \
+    -o "$ORG_ALIAS" \
+    -d force-app/main/default/genAiPlugins \
+    --ignore-conflicts \
+    ${DEPLOY_FLAGS[@]+"${DEPLOY_FLAGS[@]}"}
+fi
 if [ -d force-app/main/default/bots ] && compgen -G "force-app/main/default/bots/*" > /dev/null; then
   sf project deploy start \
     -o "$ORG_ALIAS" \
@@ -73,7 +87,7 @@ if [ -d force-app/main/default/bots ] && compgen -G "force-app/main/default/bots
     --ignore-conflicts \
     ${DEPLOY_FLAGS[@]+"${DEPLOY_FLAGS[@]}"}
 else
-  echo "  (sem agent versionado ainda - crie na UI e rode retrieve.sh)"
+  echo "  (sem agent versionado ainda - crie via UI seguindo docs/AGENT.md e rode scripts/retrieve-agent.sh)"
 fi
 
 echo ""
@@ -85,5 +99,6 @@ else
   echo "  1. ./scripts/create-users.sh $ORG_ALIAS"
   echo "  2. ./scripts/bootstrap-data.sh $ORG_ALIAS"
   echo "  3. ./scripts/create-knowledge.sh $ORG_ALIAS   # publica os 5 artigos de politica"
-  echo "  4. Configurar Agente A (Topic Consulta_Politicas_RH) via UI"
+  echo "  4. Criar Agent_Itau_RH via Agent Builder UI - ver docs/AGENT.md (5 min)"
+  echo "  5. ./scripts/retrieve-agent.sh $ORG_ALIAS   # versiona o agent no SFDX project"
 fi

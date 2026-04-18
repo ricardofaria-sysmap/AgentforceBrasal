@@ -36,8 +36,11 @@ Colaborador → Chat Embedded → Agente A (KB)
 │   ├── TOPIC_AGENTE_A.md                # scope, instructions, actions
 │   ├── SCREEN_FLOW.md                   # especificação detalhada do Flow
 │   ├── KNOWLEDGE.md                     # metadata, artigos e categorias
+│   ├── AGENT.md                         # passo-a-passo do Agent A (UI + retrieve)
 │   ├── DEPLOY_ORG_BRASAL.md             # guia de deploy na org SDO do Brasal
 │   └── knowledge-articles/              # conteúdo dos 5 artigos KB (markdown)
+├── specs/
+│   └── agent-itau-rh.yaml               # blueprint do Agent A
 ├── data/
 │   ├── users.csv
 │   └── saldo_ferias.csv
@@ -50,6 +53,7 @@ Colaborador → Chat Embedded → Agente A (KB)
 │   ├── bootstrap-data.sh
 │   ├── create-knowledge.sh              # publica os 5 artigos KB
 │   ├── apex/create-knowledge.apex
+│   ├── retrieve-agent.sh                # versiona Agent_Itau_RH após criação UI
 │   └── retrieve.sh
 └── force-app/main/default/
     ├── objects/
@@ -75,6 +79,8 @@ sf org login web -a itau-demo
 ./scripts/create-users.sh itau-demo
 ./scripts/bootstrap-data.sh itau-demo
 ./scripts/create-knowledge.sh itau-demo
+# criar Agent A via UI seguindo docs/AGENT.md (5 min), depois versionar:
+./scripts/retrieve-agent.sh itau-demo
 ```
 
 ### Reusando a org SDO do Brasal
@@ -87,6 +93,8 @@ Ver [`docs/DEPLOY_ORG_BRASAL.md`](docs/DEPLOY_ORG_BRASAL.md). Resumo:
 ./scripts/create-users.sh AgentforceSysmapEmpreendimentos
 ./scripts/bootstrap-data.sh AgentforceSysmapEmpreendimentos
 ./scripts/create-knowledge.sh AgentforceSysmapEmpreendimentos
+# Agent A via UI (docs/AGENT.md) + retrieve:
+./scripts/retrieve-agent.sh AgentforceSysmapEmpreendimentos
 ```
 
 ## Personas de teste
