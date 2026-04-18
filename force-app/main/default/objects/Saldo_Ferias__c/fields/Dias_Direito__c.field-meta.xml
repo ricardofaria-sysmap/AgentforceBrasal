@@ -5,13 +5,12 @@
     <formula>IF(
     ISPICKVAL(Regime_Contratacao__c, "PJ"),
     20,
-    CASE(
-      TRUE,
-      Faltas_Injustificadas__c &lt;= 5, 30,
-      Faltas_Injustificadas__c &lt;= 14, 24,
-      Faltas_Injustificadas__c &lt;= 23, 18,
-      Faltas_Injustificadas__c &lt;= 32, 12,
-      0
+    IF(Faltas_Injustificadas__c &lt;= 5, 30,
+        IF(Faltas_Injustificadas__c &lt;= 14, 24,
+            IF(Faltas_Injustificadas__c &lt;= 23, 18,
+                IF(Faltas_Injustificadas__c &lt;= 32, 12, 0)
+            )
+        )
     )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
